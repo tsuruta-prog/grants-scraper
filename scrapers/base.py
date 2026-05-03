@@ -31,8 +31,9 @@ SKIP_EXTENSIONS = (
     ".docx", ".doc", ".zip", ".rar", ".7z",
 )
 
-# 本文の開始位置を示すマーカー（自治体サイトの "本文へスキップ" の飛び先テキスト）
-# 詳細ページ本文からヘッダー/ナビ部分を除去するために使う
+# 本文の開始位置を示すマーカー
+# rfind で「最後の出現」を探すので、ナビ/パンくずに同じ文言が混じっていても
+# 確実に本文直前のマーカーを掴める。
 BODY_START_MARKERS = (
     "ここから本文です。",
     "ここから本文です",
@@ -40,7 +41,7 @@ BODY_START_MARKERS = (
     "本文ここからです",
 )
 
-# 本文の終わりを示すマーカー（フッター直前にある定型文）
+# 本文の終わりを示すマーカー
 BODY_END_MARKERS = (
     "このページの作成所属",
     "このページに関するお問い合わせ",
@@ -50,6 +51,8 @@ BODY_END_MARKERS = (
     "ページの先頭へ",
     "関連ページ",
     "よく見られているページ",
+    "このページの情報は役に立ちましたか",
+    "より良いウェブサイトにするためにみなさまのご意見",
 )
 
 STATUS_PATTERNS: list[tuple[re.Pattern, str]] = [
@@ -80,28 +83,31 @@ def trim_summary(text: Optional[str], limit: int = SUMMARY_MAX) -> str:
 def extract_body_text(full_text: str) -> str:
     """ページ全文から、本文マーカーで囲まれた範囲だけを抜き出す。
 
-    - 開始マーカー (BODY_START_MARKERS) が見つかれば、そこ以降を本文とする
+    - 開始マーカー (BODY_START_MARKERS) の **最後の出現** 以降を本文とする
+      （rfind を使うことでナビゲーション内の重複を回避）
     - 終了マーカー (BODY_END_MARKERS) が見つかれば、そこ以前で打ち切る
     - 開始マーカーが無い場合は元のテキストをそのまま返す
     """
     if not full_text:
         return ""
     text = full_text
-    # 開始マーカー
-    start_idx = -1
+    # 開始マーカー（最後の出現を採用）
+    best_start = -1
     for marker in BODY_START_MARKERS:
-        idx = text.find(marker)
+        idx = text.rfind(marker)
         if idx >= 0:
-            start_idx = idx + len(marker)
-            break
-    if start_idx >= 0:
-        text = text[start_idx:]
-    # 終了マーカー
+            candidate = idx + len(marker)
+            if candidate > best_start:
+                best_start = candidate
+    if best_start >= 0:
+        text = text[best_start:]
+    # 終了マーカー（最初の出現で打ち切る）
+    best_end = len(text)
     for marker in BODY_END_MARKERS:
         idx = text.find(marker)
-        if idx > 0:  # 0 ならマーカーが先頭、それは無視
-            text = text[:idx]
-            break
+        if 0 < idx < best_end:
+            best_end = idx
+    text = text[:best_end]
     return text.strip()
 
 
@@ -195,13 +201,7 @@ class BaseScraper(ABC):
         detail_selector: str = "#main, main, .contents, .content, article",
         max_items: int = 200,
     ) -> list[dict]:
-        """一覧→詳細の汎用巡回。
-
-        詳細ページからは:
-        1) detail_selector で本文エリアを取得（無ければ body 全体）
-        2) その中から BODY_START_MARKERS / BODY_END_MARKERS で本文部分を切り出し
-        の2段構えで「概要」を作る。
-        """
+        """一覧→詳細の汎用巡回。"""
         from urllib.parse import urljoin
 
         soup = self.get_soup(list_url)
@@ -237,7 +237,6 @@ class BaseScraper(ABC):
                     main = detail.select_one(detail_selector) or detail.body
                     if main:
                         body_text = main.get_text(" ", strip=True)
-                        # 本文マーカーで前後をトリミング（ヘッダ・フッタを除外）
                         body_text = extract_body_text(body_text) or body_text
                         summary = body_text or text
                         amount_text = body_text
