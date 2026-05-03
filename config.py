@@ -16,9 +16,10 @@ EXCEL_PATH = DATA_DIR / "grants.xlsx"
 
 # HTTP 設定
 USER_AGENT = (
-    "GrantsScraperBot/1.0 (+https://github.com/your-org/grants-scraper; "
-    "contact: your-email@example.com) "
-    "Python-requests"
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36 "
+    "GrantsScraperBot/1.0"
 )
 REQUEST_HEADERS = {
     "User-Agent": USER_AGENT,
@@ -51,15 +52,24 @@ ALL_SHEET = "全件統合"
 # key  : スクレイパモジュール名（scrapers/<name>.py）
 # value: シート名 / ラベルとして使う日本語名
 MUNICIPALITIES: dict[str, str] = {
+    # 大阪府＋大阪府内市
     "osaka_pref": "大阪府",
     "osaka_city": "大阪市",
     "sakai": "堺市",
     "higashiosaka": "東大阪市",
     "suita": "吹田市",
+    "toyonaka": "豊中市",
+    "ikeda": "池田市",
+    "minoh": "箕面市",
+    "takatsuki": "高槻市",
+    "ibaraki": "茨木市",
+    # 兵庫県＋兵庫県内市
     "hyogo_pref": "兵庫県",
     "kobe": "神戸市",
     "himeji": "姫路市",
     "amagasaki": "尼崎市",
     "nishinomiya": "西宮市",
+    "kawanishi": "川西市",
+    # ポータル
     "jnet21": "J-Net21",
 }

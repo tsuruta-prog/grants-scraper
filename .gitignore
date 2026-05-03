@@ -24,3 +24,17 @@ Thumbs.db
 # 一時ファイル
 *.tmp
 ~$*
+# データファイル(取得結果はGitに含めない)
+data/grants.xlsx
+data/grants.xlsx.*
+
+# 作業用バックアップ
+*.bak
+
+# 作業用デバッグファイル
+debug*.html
+debug*.py
+test_*.html
+test_*.py
+log_*.txt
+problem_*.html
