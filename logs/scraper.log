@@ -1,0 +1,137 @@
+2026-05-03 21:47:40,218 [INFO] __main__: === 開始: 対象 1 件 ===
+2026-05-03 21:47:40,220 [INFO] __main__: 既存 URL 0 件を読込
+2026-05-03 21:47:40,674 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o100050/keieishien/josei/index.html
+2026-05-03 21:47:42,793 [ERROR] scrapers.base: [大阪府] スクレイピング失敗: 404 Client Error: Not Found for url: https://www.pref.osaka.lg.jp/o100050/keieishien/josei/index.html
+Traceback (most recent call last):
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 240, in fetch
+    records = self.parse() or []
+              ~~~~~~~~~~^^
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\osaka_pref.py", line 12, in parse
+    return self.parse_listing(
+           ~~~~~~~~~~~~~~~~~~^
+        list_url=self.start_url,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        link_selector="ul li a, article a, table a",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 181, in parse_listing
+    soup = self.get_soup(list_url)
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 129, in get_soup
+    resp = polite_get(url)
+  File "C:\Users\JDL\Documents\grants-scraper\utils\http.py", line 88, in polite_get
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\JDL\Documents\grants-scraper\.venv\Lib\site-packages\requests\models.py", line 1028, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.pref.osaka.lg.jp/o100050/keieishien/josei/index.html
+2026-05-03 21:47:42,799 [INFO] __main__: [大阪府] 取得 0 件 / 新規 0 件
+2026-05-03 21:47:42,801 [INFO] __main__: 新規データなし。Excel は更新しません。
+2026-05-03 21:47:42,802 [INFO] __main__: === 終了 ===
+2026-05-03 21:47:42,802 [INFO] __main__:   大阪府: 新規 0 件
+2026-05-03 21:47:42,803 [INFO] __main__: 合計新規: 0 件
+2026-05-03 21:50:08,651 [INFO] __main__: === 開始: 対象 1 件 ===
+2026-05-03 21:50:08,654 [INFO] __main__: 既存 URL 0 件を読込
+2026-05-03 21:50:08,952 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o110010/shokosomu/shiensaku/index.html
+2026-05-03 21:50:25,033 [INFO] scrapers.base: [大阪府] 取得 7 件 (有効 7 件)
+2026-05-03 21:50:25,033 [INFO] __main__: [大阪府] 取得 7 件 / 新規 7 件
+2026-05-03 21:50:25,079 [INFO] utils.excel_writer: Excel 追記 7 件 -> C:\Users\JDL\Documents\grants-scraper\data\grants.xlsx
+2026-05-03 21:50:25,079 [INFO] __main__: === 終了 ===
+2026-05-03 21:50:25,080 [INFO] __main__:   大阪府: 新規 7 件
+2026-05-03 21:50:25,080 [INFO] __main__: 合計新規: 7 件
+2026-05-03 21:52:43,865 [INFO] __main__: === 開始: 対象 1 件 ===
+2026-05-03 21:52:43,867 [INFO] __main__: 既存 URL 0 件を読込
+2026-05-03 21:52:44,224 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o110010/shokosomu/shiensaku/index.html
+2026-05-03 21:52:53,475 [INFO] scrapers.base: [大阪府] 取得 4 件 (有効 4 件)
+2026-05-03 21:52:53,475 [INFO] __main__: [大阪府] 取得 4 件 / 新規 4 件
+2026-05-03 21:52:53,522 [INFO] utils.excel_writer: Excel 追記 4 件 -> C:\Users\JDL\Documents\grants-scraper\data\grants.xlsx
+2026-05-03 21:52:53,522 [INFO] __main__: === 終了 ===
+2026-05-03 21:52:53,523 [INFO] __main__:   大阪府: 新規 4 件
+2026-05-03 21:52:53,523 [INFO] __main__: 合計新規: 4 件
+2026-05-03 21:55:34,340 [INFO] __main__: === 開始: 対象 1 件 ===
+2026-05-03 21:55:34,363 [INFO] __main__: 既存 URL 4 件を読込
+2026-05-03 21:55:34,664 [INFO] scrapers.base: [大阪市] スクレイピング開始 url=https://www.city.osaka.lg.jp/keizaisenryaku/category/2818-3-3-0-0-0-0-0-0-0.html
+2026-05-03 21:55:36,781 [ERROR] scrapers.base: [大阪市] スクレイピング失敗: 404 Client Error: Not Found for url: https://www.city.osaka.lg.jp/keizaisenryaku/category/2818-3-3-0-0-0-0-0-0-0.html
+Traceback (most recent call last):
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 245, in fetch
+    records = self.parse() or []
+              ~~~~~~~~~~^^
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\osaka_city.py", line 13, in parse
+    return self.parse_listing(
+           ~~~~~~~~~~~~~~~~~~^
+        list_url=self.start_url,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        link_selector="ul li a, article a, .contents a",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 181, in parse_listing
+    soup = self.get_soup(list_url)
+  File "C:\Users\JDL\Documents\grants-scraper\scrapers\base.py", line 129, in get_soup
+    resp = polite_get(url)
+  File "C:\Users\JDL\Documents\grants-scraper\utils\http.py", line 88, in polite_get
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\JDL\Documents\grants-scraper\.venv\Lib\site-packages\requests\models.py", line 1028, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.city.osaka.lg.jp/keizaisenryaku/category/2818-3-3-0-0-0-0-0-0-0.html
+2026-05-03 21:55:36,794 [INFO] __main__: [大阪市] 取得 0 件 / 新規 0 件
+2026-05-03 21:55:36,796 [INFO] __main__: 新規データなし。Excel は更新しません。
+2026-05-03 21:55:36,799 [INFO] __main__: === 終了 ===
+2026-05-03 21:55:36,800 [INFO] __main__:   大阪市: 新規 0 件
+2026-05-03 21:55:36,800 [INFO] __main__: 合計新規: 0 件
+2026-05-03 22:00:53,325 [INFO] __main__: === 開始: 対象 11 件 ===
+2026-05-03 22:00:53,327 [INFO] __main__: 既存 URL 0 件を読込
+2026-05-03 22:00:53,632 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o110010/shokosomu/shiensaku/index.html
+2026-05-03 22:01:03,753 [INFO] scrapers.base: [大阪府] 取得 4 件 (有効 4 件)
+2026-05-03 22:01:03,754 [INFO] __main__: [大阪府] 取得 4 件 / 新規 4 件
+2026-05-03 22:01:03,758 [INFO] scrapers.base: [大阪市] スクレイピング開始 url=https://www.city.osaka.lg.jp/sangyo/category/3037-1-2-1-0-0-0-0-0-0.html
+2026-05-03 22:01:06,932 [INFO] scrapers.base: [大阪市] 取得 1 件 (有効 1 件)
+2026-05-03 22:01:06,932 [INFO] __main__: [大阪市] 取得 1 件 / 新規 1 件
+2026-05-03 22:01:06,936 [INFO] scrapers.base: [堺市] スクレイピング開始 url=https://www.city.sakai.lg.jp/sangyo/shienyuushi/oshirase/SME_GB.html
+2026-05-03 22:01:09,201 [INFO] scrapers.base: [堺市] 取得 0 件 (有効 0 件)
+2026-05-03 22:01:09,202 [INFO] __main__: [堺市] 取得 0 件 / 新規 0 件
+2026-05-03 22:01:09,205 [INFO] scrapers.base: [東大阪市] スクレイピング開始 url=https://www.city.higashiosaka.lg.jp/category/19-1-0-0-0-0-0-0-0-0.html
+2026-05-03 22:01:27,127 [WARNING] scrapers.base: [東大阪市] 詳細取得失敗 url=https://www.city.higashiosaka.lg.jp/0000008181.html
+2026-05-03 22:01:28,251 [WARNING] scrapers.base: [東大阪市] 詳細取得失敗 url=https://www.city.higashiosaka.lg.jp/0000019528.html
+2026-05-03 22:01:28,251 [INFO] scrapers.base: [東大阪市] 取得 9 件 (有効 9 件)
+2026-05-03 22:01:28,251 [INFO] __main__: [東大阪市] 取得 9 件 / 新規 9 件
+2026-05-03 22:01:28,254 [INFO] scrapers.base: [吹田市] スクレイピング開始 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/index.html
+2026-05-03 22:01:54,338 [WARNING] scrapers.base: [吹田市] 詳細取得失敗 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/1018058/index.html
+2026-05-03 22:01:56,077 [WARNING] scrapers.base: [吹田市] 詳細取得失敗 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/1023431.html
+2026-05-03 22:01:58,029 [WARNING] scrapers.base: [吹田市] 詳細取得失敗 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1021242/index.html
+2026-05-03 22:01:58,030 [INFO] scrapers.base: [吹田市] 取得 14 件 (有効 14 件)
+2026-05-03 22:01:58,030 [INFO] __main__: [吹田市] 取得 14 件 / 新規 14 件
+2026-05-03 22:01:58,032 [INFO] scrapers.base: [兵庫県] スクレイピング開始 url=https://web.pref.hyogo.lg.jp/work/cate3_332.html
+2026-05-03 22:02:04,745 [INFO] scrapers.base: [兵庫県] 取得 2 件 (有効 2 件)
+2026-05-03 22:02:04,745 [INFO] __main__: [兵庫県] 取得 2 件 / 新規 2 件
+2026-05-03 22:02:04,748 [INFO] scrapers.base: [神戸市] スクレイピング開始 url=https://www.city.kobe.lg.jp/a93457/business/sangyoshinko/shokogyo/venture/monodukuri/index.html
+2026-05-03 22:02:36,801 [INFO] scrapers.base: [神戸市] 取得 15 件 (有効 15 件)
+2026-05-03 22:02:36,802 [INFO] __main__: [神戸市] 取得 15 件 / 新規 15 件
+2026-05-03 22:02:36,804 [INFO] scrapers.base: [姫路市] スクレイピング開始 url=https://www.city.himeji.lg.jp/sangyo/category/4-2-1-2-0-0-0-0-0-0.html
+2026-05-03 22:02:47,291 [INFO] scrapers.base: [姫路市] 取得 5 件 (有効 5 件)
+2026-05-03 22:02:47,291 [INFO] __main__: [姫路市] 取得 5 件 / 新規 5 件
+2026-05-03 22:02:47,294 [INFO] scrapers.base: [尼崎市] スクレイピング開始 url=https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/keiei_sien/index.html
+2026-05-03 22:02:51,800 [INFO] scrapers.base: [尼崎市] 取得 2 件 (有効 2 件)
+2026-05-03 22:02:51,801 [INFO] __main__: [尼崎市] 取得 2 件 / 新規 2 件
+2026-05-03 22:02:51,803 [INFO] scrapers.base: [西宮市] スクレイピング開始 url=https://www.nishi.or.jp/jigyoshajoho/sangyoshinko/shinkisogyo/sougyou.html
+2026-05-03 22:03:00,580 [WARNING] scrapers.base: [西宮市] 詳細取得失敗 url=https://it-shien.smrj.go.jp/
+2026-05-03 22:03:02,472 [INFO] scrapers.base: [西宮市] 取得 6 件 (有効 6 件)
+2026-05-03 22:03:02,472 [INFO] __main__: [西宮市] 取得 6 件 / 新規 6 件
+2026-05-03 22:03:02,480 [INFO] scrapers.base: [J-Net21] スクレイピング開始 url=https://j-net21.smrj.go.jp/snavi/support/
+2026-05-03 22:03:36,773 [INFO] scrapers.base: [J-Net21] 取得 3 件 (有効 3 件)
+2026-05-03 22:03:36,774 [INFO] __main__: [J-Net21] 取得 3 件 / 新規 3 件
+2026-05-03 22:03:36,928 [INFO] utils.excel_writer: Excel 追記 61 件 -> C:\Users\JDL\Documents\grants-scraper\data\grants.xlsx
+2026-05-03 22:03:36,928 [INFO] __main__: === 終了 ===
+2026-05-03 22:03:36,930 [INFO] __main__:   大阪府: 新規 4 件
+2026-05-03 22:03:36,933 [INFO] __main__:   大阪市: 新規 1 件
+2026-05-03 22:03:36,934 [INFO] __main__:   堺市: 新規 0 件
+2026-05-03 22:03:36,936 [INFO] __main__:   東大阪市: 新規 9 件
+2026-05-03 22:03:36,936 [INFO] __main__:   吹田市: 新規 14 件
+2026-05-03 22:03:36,937 [INFO] __main__:   兵庫県: 新規 2 件
+2026-05-03 22:03:36,937 [INFO] __main__:   神戸市: 新規 15 件
+2026-05-03 22:03:36,938 [INFO] __main__:   姫路市: 新規 5 件
+2026-05-03 22:03:36,938 [INFO] __main__:   尼崎市: 新規 2 件
+2026-05-03 22:03:36,939 [INFO] __main__:   西宮市: 新規 6 件
+2026-05-03 22:03:36,939 [INFO] __main__:   J-Net21: 新規 3 件
+2026-05-03 22:03:36,940 [INFO] __main__: 合計新規: 61 件

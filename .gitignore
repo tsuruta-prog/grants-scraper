@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# logs (ローテートで残るが、過去ログはトラッキング不要であれば下記コメントアウトを外す)
+# logs/*.log*
+
+# Playwright
+.playwright/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 一時ファイル
+*.tmp
+~$*
