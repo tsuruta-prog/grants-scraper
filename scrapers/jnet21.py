@@ -2,7 +2,6 @@
 
 中小機構運営の支援情報ポータル。検索結果ページは JavaScript で結果が
 描画されるケースがあるため Playwright を利用する。
-URL: https://j-net21.smrj.go.jp/snavi/support/
 """
 from __future__ import annotations
 
@@ -11,20 +10,27 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from config import PLAYWRIGHT_TIMEOUT_MS, USER_AGENT
-from scrapers.base import BaseScraper
+from scrapers.base import BaseScraper, SKIP_EXTENSIONS
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+# リンクテキストにこれらのいずれかを含むものだけ採用（厳しめ）
+INCLUDE_KEYWORDS = ("補助金", "助成金", "支援金", "補助制度", "助成制度")
+
+# ナビゲーション・カテゴリ系のリンクを排除
+EXCLUDE_PHRASES = (
+    "ヘッドライン", "トップ", "一覧", "カテゴリ", "メニュー",
+    "サイトマップ", "プライバシー", "ログイン", "新規登録",
+)
+
 
 class Scraper(BaseScraper):
     municipality = "J-Net21"
-    # 補助金/助成金 のカテゴリで絞り込んだ一覧。実運用では地域フィルタを足してもよい。
     start_url = "https://j-net21.smrj.go.jp/snavi/support/"
 
     def _fetch_html_with_playwright(self, url: str) -> str:
         """Playwright で JS レンダリング後の HTML を返す。"""
-        # 遅延 import: Playwright 未インストール環境でも他スクレイパが動くように
         from playwright.sync_api import sync_playwright
 
         with sync_playwright() as p:
@@ -34,10 +40,9 @@ class Scraper(BaseScraper):
                 page = context.new_page()
                 page.set_default_timeout(PLAYWRIGHT_TIMEOUT_MS)
                 page.goto(url, wait_until="networkidle")
-                # 結果リストが描画されるまで少し待つ（要素が無くてもタイムアウトで握る）
                 try:
                     page.wait_for_selector("a", timeout=PLAYWRIGHT_TIMEOUT_MS)
-                except Exception:  # noqa: BLE001
+                except Exception:
                     pass
                 return page.content()
             finally:
@@ -46,12 +51,12 @@ class Scraper(BaseScraper):
     def parse(self) -> list[dict]:
         try:
             html = self._fetch_html_with_playwright(self.start_url)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             logger.exception("[%s] Playwright 取得失敗: %s", self.municipality, exc)
-            # フォールバック: 通常 GET（中身は薄いかもしれない）
             return self.parse_listing(
                 list_url=self.start_url,
                 link_selector="a",
+                keywords=INCLUDE_KEYWORDS,
                 follow_detail=False,
             )
 
@@ -59,20 +64,30 @@ class Scraper(BaseScraper):
         records: list[dict] = []
         seen: set[str] = set()
 
-        # 一覧の各カードに含まれるリンクを拾う
         for a in soup.select("a"):
             text = a.get_text(" ", strip=True)
             href = a.get("href")
             if not text or not href:
                 continue
-            if not any(kw in text for kw in ("補助", "助成", "支援", "公募")):
+            # 短すぎるリンクテキストは除外（カテゴリ名の可能性）
+            if len(text) < 8:
                 continue
+            # 包含キーワードチェック
+            if not any(kw in text for kw in INCLUDE_KEYWORDS):
+                continue
+            # 除外フレーズチェック
+            if any(p in text for p in EXCLUDE_PHRASES):
+                continue
+            # ファイル直リンクは除外
+            href_lower = href.lower().split("?")[0].split("#")[0]
+            if any(href_lower.endswith(ext) for ext in SKIP_EXTENSIONS):
+                continue
+
             url = urljoin(self.start_url, href)
             if url in seen:
                 continue
             seen.add(url)
 
-            # 親要素から概要っぽいテキストを取得（詳細ページに行かず軽く済ます）
             parent = a.find_parent(["article", "li", "div"])
             summary = parent.get_text(" ", strip=True) if parent else text
 

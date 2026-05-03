@@ -7,6 +7,7 @@
 - ステータスの正規化
 - 締切日のパース
 - 一覧→詳細ページ巡回（PDF/PPT等のファイル直リンク自動除外）
+- 本文マーカーによるヘッダー/メニュー除去
 """
 from __future__ import annotations
 
@@ -23,16 +24,34 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-# 概要の目安文字数（200字「程度」)
 SUMMARY_MAX = 220
 
-# 一覧から除外するファイル拡張子（PDF/オフィス文書/アーカイブ類は補助金本体ではなくパンフレット類）
 SKIP_EXTENSIONS = (
     ".pdf", ".pptx", ".ppt", ".xlsx", ".xls",
     ".docx", ".doc", ".zip", ".rar", ".7z",
 )
 
-# ステータス正規化マップ
+# 本文の開始位置を示すマーカー（自治体サイトの "本文へスキップ" の飛び先テキスト）
+# 詳細ページ本文からヘッダー/ナビ部分を除去するために使う
+BODY_START_MARKERS = (
+    "ここから本文です。",
+    "ここから本文です",
+    "本文ここから",
+    "本文ここからです",
+)
+
+# 本文の終わりを示すマーカー（フッター直前にある定型文）
+BODY_END_MARKERS = (
+    "このページの作成所属",
+    "このページに関するお問い合わせ",
+    "お問い合わせ先",
+    "お問い合わせ",
+    "ページの先頭へ戻る",
+    "ページの先頭へ",
+    "関連ページ",
+    "よく見られているページ",
+)
+
 STATUS_PATTERNS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"(公募中|募集中|受付中|申請受付中)"), "公募中"),
     (re.compile(r"(公募開始|募集開始|受付開始)"), "公募開始"),
@@ -41,7 +60,6 @@ STATUS_PATTERNS: list[tuple[re.Pattern, str]] = [
 
 
 def normalize_status(text: Optional[str]) -> str:
-    """テキストから公募ステータスを推定。マッチしないものは '不明'。"""
     if not text:
         return "不明"
     for pat, label in STATUS_PATTERNS:
@@ -51,13 +69,40 @@ def normalize_status(text: Optional[str]) -> str:
 
 
 def trim_summary(text: Optional[str], limit: int = SUMMARY_MAX) -> str:
-    """概要を整形してざっくり 200 字に収める。"""
     if not text:
         return ""
     cleaned = re.sub(r"\s+", " ", text).strip()
     if len(cleaned) <= limit:
         return cleaned
     return cleaned[: limit - 1] + "…"
+
+
+def extract_body_text(full_text: str) -> str:
+    """ページ全文から、本文マーカーで囲まれた範囲だけを抜き出す。
+
+    - 開始マーカー (BODY_START_MARKERS) が見つかれば、そこ以降を本文とする
+    - 終了マーカー (BODY_END_MARKERS) が見つかれば、そこ以前で打ち切る
+    - 開始マーカーが無い場合は元のテキストをそのまま返す
+    """
+    if not full_text:
+        return ""
+    text = full_text
+    # 開始マーカー
+    start_idx = -1
+    for marker in BODY_START_MARKERS:
+        idx = text.find(marker)
+        if idx >= 0:
+            start_idx = idx + len(marker)
+            break
+    if start_idx >= 0:
+        text = text[start_idx:]
+    # 終了マーカー
+    for marker in BODY_END_MARKERS:
+        idx = text.find(marker)
+        if idx > 0:  # 0 ならマーカーが先頭、それは無視
+            text = text[:idx]
+            break
+    return text.strip()
 
 
 _DATE_PATTERNS = [
@@ -67,7 +112,6 @@ _DATE_PATTERNS = [
 
 
 def parse_deadline(text: Optional[str]) -> str:
-    """文章中から締切日らしきものを ISO 形式 (YYYY-MM-DD) で取り出す。"""
     if not text:
         return ""
     for pat in _DATE_PATTERNS:
@@ -91,7 +135,6 @@ def parse_deadline(text: Optional[str]) -> str:
 
 
 def parse_amount(text: Optional[str]) -> str:
-    """金額表現から上限額の表示文字列を取り出す。"""
     if not text:
         return ""
     cleaned = re.sub(r"\s+", " ", text)
@@ -108,8 +151,6 @@ def parse_amount(text: Optional[str]) -> str:
 
 
 class BaseScraper(ABC):
-    """各自治体スクレイパの基底クラス。"""
-
     municipality: str = ""
     start_url: str = ""
 
@@ -154,7 +195,13 @@ class BaseScraper(ABC):
         detail_selector: str = "#main, main, .contents, .content, article",
         max_items: int = 200,
     ) -> list[dict]:
-        """一覧→詳細の汎用巡回。PDF/PPT/Excel等のファイル直リンクは自動除外。"""
+        """一覧→詳細の汎用巡回。
+
+        詳細ページからは:
+        1) detail_selector で本文エリアを取得（無ければ body 全体）
+        2) その中から BODY_START_MARKERS / BODY_END_MARKERS で本文部分を切り出し
+        の2段構えで「概要」を作る。
+        """
         from urllib.parse import urljoin
 
         soup = self.get_soup(list_url)
@@ -171,7 +218,6 @@ class BaseScraper(ABC):
                 continue
             if keywords and not any(kw in text for kw in keywords):
                 continue
-            # PDF/PPT/Excel/ZIP 等のファイル直リンクは除外
             href_lower = href.lower().split("?")[0].split("#")[0]
             if any(href_lower.endswith(ext) for ext in SKIP_EXTENSIONS):
                 continue
@@ -191,6 +237,8 @@ class BaseScraper(ABC):
                     main = detail.select_one(detail_selector) or detail.body
                     if main:
                         body_text = main.get_text(" ", strip=True)
+                        # 本文マーカーで前後をトリミング（ヘッダ・フッタを除外）
+                        body_text = extract_body_text(body_text) or body_text
                         summary = body_text or text
                         amount_text = body_text
                         for sentence in body_text.split("。"):
@@ -217,7 +265,6 @@ class BaseScraper(ABC):
         return records
 
     def fetch(self) -> list[dict]:
-        """例外を握って空リストにフォールバック（パイプラインを止めないため）。"""
         try:
             logger.info("[%s] スクレイピング開始 url=%s", self.municipality, self.start_url)
             records = self.parse() or []

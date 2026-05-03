@@ -14,4 +14,6 @@ class Scraper(BaseScraper):
             list_url=self.start_url,
             link_selector="a",
             keywords=("補助金", "助成金", "支援金", "支援補助"),
+            # 姫路市サイトは "本文へスキップ" リンクが #HONBUN を指している。
+            detail_selector="#HONBUN, main, article",
         )

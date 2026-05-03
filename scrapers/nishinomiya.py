@@ -14,4 +14,7 @@ class Scraper(BaseScraper):
             list_url=self.start_url,
             link_selector="a",
             keywords=("補助金", "助成金", "支援金", "支援補助"),
+            # 西宮市サイトは "メニューを飛ばして本文へ" リンクが #CONT を指している。
+            # 外部リンク先（補助金ポータル等）には効かないが、西宮市自身のページでは効く。
+            detail_selector="#CONT, main, article",
         )
