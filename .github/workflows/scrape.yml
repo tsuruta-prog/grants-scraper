@@ -3,7 +3,7 @@ name: scrape-grants
 # 毎朝 JST 7:00 = UTC 22:00 (前日)
 on:
   schedule:
-    - cron: "0 22 * * *"
+  - cron: '7 22 * * *'   # JST 7:07 (混雑回避のため7分ずらす)
   workflow_dispatch:  # 手動実行も可能
 
 permissions:
