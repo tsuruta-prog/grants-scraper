@@ -220,3 +220,79 @@
 2026-05-05 15:34:58,686 [INFO] __main__:   川西市: 新規 0 件
 2026-05-05 15:34:58,686 [INFO] __main__:   J-Net21: 新規 0 件
 2026-05-05 15:34:58,686 [INFO] __main__: 合計新規: 0 件
+2026-05-07 17:04:20,499 [INFO] __main__: === 開始: 対象 17 件 ===
+2026-05-07 17:04:20,538 [INFO] __main__: 既存 URL 86 件を読込
+2026-05-07 17:04:21,122 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o110010/shokosomu/shiensaku/index.html
+2026-05-07 17:04:31,642 [INFO] scrapers.base: [大阪府] 取得 4 件 (有効 4 件)
+2026-05-07 17:04:31,642 [INFO] __main__: [大阪府] 取得 4 件 / 新規 0 件
+2026-05-07 17:04:31,643 [INFO] scrapers.base: [大阪市] スクレイピング開始 url=https://www.city.osaka.lg.jp/sangyo/category/3037-1-2-1-0-0-0-0-0-0.html
+2026-05-07 17:04:35,756 [INFO] scrapers.base: [大阪市] 取得 1 件 (有効 1 件)
+2026-05-07 17:04:35,756 [INFO] __main__: [大阪市] 取得 1 件 / 新規 0 件
+2026-05-07 17:04:35,757 [INFO] scrapers.base: [堺市] スクレイピング開始 url=https://www.city.sakai.lg.jp/sangyo/shienyuushi/oshirase/SME_GB.html
+2026-05-07 17:04:37,845 [INFO] scrapers.base: [堺市] 取得 0 件 (有効 0 件)
+2026-05-07 17:04:37,845 [INFO] __main__: [堺市] 取得 0 件 / 新規 0 件
+2026-05-07 17:04:37,845 [INFO] scrapers.base: [東大阪市] スクレイピング開始 url=https://www.city.higashiosaka.lg.jp/category/19-1-0-0-0-0-0-0-0-0.html
+2026-05-07 17:04:57,469 [INFO] scrapers.base: [東大阪市] 取得 9 件 (有効 9 件)
+2026-05-07 17:04:57,469 [INFO] __main__: [東大阪市] 取得 9 件 / 新規 0 件
+2026-05-07 17:04:57,470 [INFO] scrapers.base: [吹田市] スクレイピング開始 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/index.html
+2026-05-07 17:05:25,238 [INFO] scrapers.base: [吹田市] 取得 13 件 (有効 13 件)
+2026-05-07 17:05:25,238 [INFO] __main__: [吹田市] 取得 13 件 / 新規 0 件
+2026-05-07 17:05:25,239 [INFO] scrapers.base: [豊中市] スクレイピング開始 url=https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/index.html
+2026-05-07 17:06:04,486 [INFO] scrapers.base: [豊中市] 取得 19 件 (有効 19 件)
+2026-05-07 17:06:04,487 [INFO] __main__: [豊中市] 取得 19 件 / 新規 0 件
+2026-05-07 17:06:04,487 [INFO] scrapers.base: [池田市] スクレイピング開始 url=https://www.city.ikeda.osaka.jp/soshiki/siminseikatsu/shoko/syogyo/jigyoshashien/index.html
+2026-05-07 17:06:30,609 [WARNING] utils.http: robots.txt 取得失敗 host=www.city.ikeda.osaka.jp err=Remote end closed connection without response
+2026-05-07 17:06:47,982 [INFO] scrapers.base: [池田市] 取得 0 件 (有効 0 件)
+2026-05-07 17:06:47,982 [INFO] __main__: [池田市] 取得 0 件 / 新規 0 件
+2026-05-07 17:06:47,983 [INFO] scrapers.base: [箕面市] スクレイピング開始 url=https://www.city.minoh.lg.jp/syoukou/syoukouhojokin.html
+2026-05-07 17:06:52,834 [INFO] scrapers.base: [箕面市] 取得 2 件 (有効 2 件)
+2026-05-07 17:06:52,834 [INFO] __main__: [箕面市] 取得 2 件 / 新規 0 件
+2026-05-07 17:06:52,835 [INFO] scrapers.base: [高槻市] スクレイピング開始 url=https://www.city.takatsuki.osaka.jp/life/8/
+2026-05-07 17:07:10,433 [INFO] scrapers.base: [高槻市] 取得 2 件 (有効 2 件)
+2026-05-07 17:07:10,433 [INFO] __main__: [高槻市] 取得 2 件 / 新規 0 件
+2026-05-07 17:07:10,433 [INFO] scrapers.base: [茨木市] スクレイピング開始 url=https://www.city.ibaraki.osaka.jp/hojokin_joseikin/index.html
+2026-05-07 17:07:34,560 [INFO] scrapers.base: [茨木市] 取得 0 件 (有効 0 件)
+2026-05-07 17:07:34,560 [INFO] __main__: [茨木市] 取得 0 件 / 新規 0 件
+2026-05-07 17:07:34,561 [INFO] scrapers.base: [兵庫県] スクレイピング開始 url=https://web.pref.hyogo.lg.jp/work/cate3_332.html
+2026-05-07 17:07:39,214 [INFO] scrapers.base: [兵庫県] 取得 2 件 (有効 2 件)
+2026-05-07 17:07:39,215 [INFO] __main__: [兵庫県] 取得 2 件 / 新規 0 件
+2026-05-07 17:07:39,215 [INFO] scrapers.base: [神戸市] スクレイピング開始 url=https://www.city.kobe.lg.jp/a93457/business/sangyoshinko/shokogyo/venture/monodukuri/index.html
+2026-05-07 17:08:10,747 [INFO] scrapers.base: [神戸市] 取得 15 件 (有効 15 件)
+2026-05-07 17:08:10,747 [INFO] __main__: [神戸市] 取得 15 件 / 新規 0 件
+2026-05-07 17:08:10,747 [INFO] scrapers.base: [姫路市] スクレイピング開始 url=https://www.city.himeji.lg.jp/sangyo/category/4-2-1-2-0-0-0-0-0-0.html
+2026-05-07 17:08:21,575 [INFO] scrapers.base: [姫路市] 取得 5 件 (有効 5 件)
+2026-05-07 17:08:21,575 [INFO] __main__: [姫路市] 取得 5 件 / 新規 0 件
+2026-05-07 17:08:21,575 [INFO] scrapers.base: [尼崎市] スクレイピング開始 url=https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/keiei_sien/index.html
+2026-05-07 17:08:26,939 [INFO] scrapers.base: [尼崎市] 取得 2 件 (有効 2 件)
+2026-05-07 17:08:26,939 [INFO] __main__: [尼崎市] 取得 2 件 / 新規 0 件
+2026-05-07 17:08:26,940 [INFO] scrapers.base: [西宮市] スクレイピング開始 url=https://www.nishi.or.jp/jigyoshajoho/sangyoshinko/shinkisogyo/sougyou.html
+2026-05-07 17:09:55,996 [WARNING] scrapers.base: [西宮市] 詳細取得失敗 url=https://r6.jizokukahojokin.info/sogyo/ err=ConnectionError: HTTPSConnectionPool(host='r6.jizokukahojokin.info', port=443): Read timed out.
+2026-05-07 17:10:32,774 [WARNING] scrapers.base: [西宮市] 詳細取得失敗 url=https://it-shien.smrj.go.jp/ err=PermissionError: robots.txt によりアクセス禁止: https://it-shien.smrj.go.jp/
+2026-05-07 17:10:49,344 [INFO] scrapers.base: [西宮市] 取得 8 件 (有効 8 件)
+2026-05-07 17:10:49,344 [INFO] __main__: [西宮市] 取得 8 件 / 新規 2 件
+2026-05-07 17:10:49,345 [INFO] scrapers.base: [川西市] スクレイピング開始 url=https://www.city.kawanishi.hyogo.jp/business/syokogyo/1019925/index.html
+2026-05-07 17:11:02,328 [INFO] scrapers.base: [川西市] 取得 6 件 (有効 6 件)
+2026-05-07 17:11:02,329 [INFO] __main__: [川西市] 取得 6 件 / 新規 0 件
+2026-05-07 17:11:02,330 [INFO] scrapers.base: [J-Net21] スクレイピング開始 url=https://j-net21.smrj.go.jp/snavi/support/
+2026-05-07 17:11:05,329 [INFO] scrapers.base: [J-Net21] 取得 0 件 (有効 0 件)
+2026-05-07 17:11:05,329 [INFO] __main__: [J-Net21] 取得 0 件 / 新規 0 件
+2026-05-07 17:11:05,449 [INFO] utils.excel_writer: Excel 追記 2 件 -> /home/runner/work/grants-scraper/grants-scraper/data/grants.xlsx
+2026-05-07 17:11:05,449 [INFO] __main__: === 終了 ===
+2026-05-07 17:11:05,449 [INFO] __main__:   大阪府: 新規 0 件
+2026-05-07 17:11:05,449 [INFO] __main__:   大阪市: 新規 0 件
+2026-05-07 17:11:05,449 [INFO] __main__:   堺市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   東大阪市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   吹田市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   豊中市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   池田市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   箕面市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   高槻市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   茨木市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   兵庫県: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   神戸市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   姫路市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   尼崎市: 新規 0 件
+2026-05-07 17:11:05,450 [INFO] __main__:   西宮市: 新規 2 件
+2026-05-07 17:11:05,450 [INFO] __main__:   川西市: 新規 0 件
+2026-05-07 17:11:05,451 [INFO] __main__:   J-Net21: 新規 0 件
+2026-05-07 17:11:05,451 [INFO] __main__: 合計新規: 2 件
