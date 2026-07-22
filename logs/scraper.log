@@ -5811,3 +5811,77 @@
 2026-07-22 08:12:16,329 [INFO] __main__:   川西市: 新規 0 件
 2026-07-22 08:12:16,329 [INFO] __main__:   J-Net21: 新規 0 件
 2026-07-22 08:12:16,329 [INFO] __main__: 合計新規: 0 件
+2026-07-23 08:14:21,524 [INFO] __main__: === 開始: 対象 17 件 ===
+2026-07-23 08:14:21,567 [INFO] __main__: 既存 URL 116 件を読込
+2026-07-23 08:14:21,722 [INFO] scrapers.base: [大阪府] スクレイピング開始 url=https://www.pref.osaka.lg.jp/o110010/shokosomu/shiensaku/index.html
+2026-07-23 08:14:34,323 [INFO] scrapers.base: [大阪府] 取得 4 件 (有効 4 件)
+2026-07-23 08:14:34,323 [INFO] __main__: [大阪府] 取得 4 件 / 新規 0 件
+2026-07-23 08:14:34,324 [INFO] scrapers.base: [大阪市] スクレイピング開始 url=https://www.city.osaka.lg.jp/sangyo/category/3037-1-2-1-0-0-0-0-0-0.html
+2026-07-23 08:14:40,209 [INFO] scrapers.base: [大阪市] 取得 2 件 (有効 2 件)
+2026-07-23 08:14:40,210 [INFO] __main__: [大阪市] 取得 2 件 / 新規 0 件
+2026-07-23 08:14:40,211 [INFO] scrapers.base: [堺市] スクレイピング開始 url=https://www.city.sakai.lg.jp/sangyo/shienyuushi/oshirase/SME_GB.html
+2026-07-23 08:14:55,887 [INFO] scrapers.base: [堺市] 取得 1 件 (有効 1 件)
+2026-07-23 08:14:55,888 [INFO] __main__: [堺市] 取得 1 件 / 新規 0 件
+2026-07-23 08:14:55,888 [INFO] scrapers.base: [東大阪市] スクレイピング開始 url=https://www.city.higashiosaka.lg.jp/category/19-1-0-0-0-0-0-0-0-0.html
+2026-07-23 08:15:40,650 [INFO] scrapers.base: [東大阪市] 取得 15 件 (有効 15 件)
+2026-07-23 08:15:40,650 [INFO] __main__: [東大阪市] 取得 15 件 / 新規 0 件
+2026-07-23 08:15:40,650 [INFO] scrapers.base: [吹田市] スクレイピング開始 url=https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/index.html
+2026-07-23 08:16:10,882 [INFO] scrapers.base: [吹田市] 取得 14 件 (有効 14 件)
+2026-07-23 08:16:10,883 [INFO] __main__: [吹田市] 取得 14 件 / 新規 0 件
+2026-07-23 08:16:10,883 [INFO] scrapers.base: [豊中市] スクレイピング開始 url=https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/index.html
+2026-07-23 08:16:48,765 [INFO] scrapers.base: [豊中市] 取得 18 件 (有効 18 件)
+2026-07-23 08:16:48,765 [INFO] __main__: [豊中市] 取得 18 件 / 新規 0 件
+2026-07-23 08:16:48,766 [INFO] scrapers.base: [池田市] スクレイピング開始 url=https://www.city.ikeda.osaka.jp/soshiki/siminseikatsu/shoko/syogyo/jigyoshashien/index.html
+2026-07-23 08:16:51,082 [INFO] scrapers.base: [池田市] 取得 0 件 (有効 0 件)
+2026-07-23 08:16:51,083 [INFO] __main__: [池田市] 取得 0 件 / 新規 0 件
+2026-07-23 08:16:51,083 [INFO] scrapers.base: [箕面市] スクレイピング開始 url=https://www.city.minoh.lg.jp/syoukou/syoukouhojokin.html
+2026-07-23 08:16:56,156 [INFO] scrapers.base: [箕面市] 取得 2 件 (有効 2 件)
+2026-07-23 08:16:56,156 [INFO] __main__: [箕面市] 取得 2 件 / 新規 0 件
+2026-07-23 08:16:56,157 [INFO] scrapers.base: [高槻市] スクレイピング開始 url=https://www.city.takatsuki.osaka.jp/life/8/
+2026-07-23 08:17:01,955 [INFO] scrapers.base: [高槻市] 取得 2 件 (有効 2 件)
+2026-07-23 08:17:01,955 [INFO] __main__: [高槻市] 取得 2 件 / 新規 0 件
+2026-07-23 08:17:01,956 [INFO] scrapers.base: [茨木市] スクレイピング開始 url=https://www.city.ibaraki.osaka.jp/hojokin_joseikin/index.html
+2026-07-23 08:17:04,422 [INFO] scrapers.base: [茨木市] 取得 0 件 (有効 0 件)
+2026-07-23 08:17:04,423 [INFO] __main__: [茨木市] 取得 0 件 / 新規 0 件
+2026-07-23 08:17:04,423 [INFO] scrapers.base: [兵庫県] スクレイピング開始 url=https://web.pref.hyogo.lg.jp/work/cate3_332.html
+2026-07-23 08:17:08,058 [INFO] scrapers.base: [兵庫県] 取得 1 件 (有効 1 件)
+2026-07-23 08:17:08,058 [INFO] __main__: [兵庫県] 取得 1 件 / 新規 0 件
+2026-07-23 08:17:08,059 [INFO] scrapers.base: [神戸市] スクレイピング開始 url=https://www.city.kobe.lg.jp/a93457/business/sangyoshinko/shokogyo/venture/monodukuri/index.html
+2026-07-23 08:17:30,077 [INFO] scrapers.base: [神戸市] 取得 10 件 (有効 10 件)
+2026-07-23 08:17:30,078 [INFO] __main__: [神戸市] 取得 10 件 / 新規 0 件
+2026-07-23 08:17:30,078 [INFO] scrapers.base: [姫路市] スクレイピング開始 url=https://www.city.himeji.lg.jp/sangyo/category/4-2-1-2-0-0-0-0-0-0.html
+2026-07-23 08:17:41,358 [INFO] scrapers.base: [姫路市] 取得 5 件 (有効 5 件)
+2026-07-23 08:17:41,358 [INFO] __main__: [姫路市] 取得 5 件 / 新規 0 件
+2026-07-23 08:17:41,359 [INFO] scrapers.base: [尼崎市] スクレイピング開始 url=https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/keiei_sien/index.html
+2026-07-23 08:17:44,673 [INFO] scrapers.base: [尼崎市] 取得 1 件 (有効 1 件)
+2026-07-23 08:17:44,674 [INFO] __main__: [尼崎市] 取得 1 件 / 新規 0 件
+2026-07-23 08:17:44,674 [INFO] scrapers.base: [西宮市] スクレイピング開始 url=https://www.nishi.or.jp/jigyoshajoho/sangyoshinko/shinkisogyo/sougyou.html
+2026-07-23 08:17:53,302 [WARNING] scrapers.base: [西宮市] 詳細取得失敗 url=https://it-shien.smrj.go.jp/ err=PermissionError: robots.txt によりアクセス禁止: https://it-shien.smrj.go.jp/
+2026-07-23 08:17:55,880 [INFO] scrapers.base: [西宮市] 取得 6 件 (有効 6 件)
+2026-07-23 08:17:55,880 [INFO] __main__: [西宮市] 取得 6 件 / 新規 0 件
+2026-07-23 08:17:55,881 [INFO] scrapers.base: [川西市] スクレイピング開始 url=https://www.city.kawanishi.hyogo.jp/business/syokogyo/1019925/index.html
+2026-07-23 08:18:09,240 [INFO] scrapers.base: [川西市] 取得 6 件 (有効 6 件)
+2026-07-23 08:18:09,240 [INFO] __main__: [川西市] 取得 6 件 / 新規 0 件
+2026-07-23 08:18:09,241 [INFO] scrapers.base: [J-Net21] スクレイピング開始 url=https://j-net21.smrj.go.jp/snavi/support/
+2026-07-23 08:18:17,000 [INFO] scrapers.base: [J-Net21] 取得 0 件 (有効 0 件)
+2026-07-23 08:18:17,000 [INFO] __main__: [J-Net21] 取得 0 件 / 新規 0 件
+2026-07-23 08:18:17,000 [INFO] __main__: 新規データなし。Excel は更新しません。
+2026-07-23 08:18:17,000 [INFO] __main__: === 終了 ===
+2026-07-23 08:18:17,001 [INFO] __main__:   大阪府: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   大阪市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   堺市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   東大阪市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   吹田市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   豊中市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   池田市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   箕面市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   高槻市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   茨木市: 新規 0 件
+2026-07-23 08:18:17,001 [INFO] __main__:   兵庫県: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   神戸市: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   姫路市: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   尼崎市: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   西宮市: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   川西市: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__:   J-Net21: 新規 0 件
+2026-07-23 08:18:17,002 [INFO] __main__: 合計新規: 0 件
